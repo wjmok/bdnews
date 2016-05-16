@@ -1,7 +1,5 @@
 'use strict';
 
-const passport = require('koa-passport');
-
 const db = require('../models/index');
 
 module.exports = function IndexController( router ) {
