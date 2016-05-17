@@ -81,15 +81,21 @@ function showContent( categoryId ) {
   //清空所有内容
   $(".index-list").remove();
   $.ajax({
+    // 接口请求方式
     type: "GET",
+    // 服务端 api 接口地址
     url: "/news",
+    // 接口参数 data
     data: {
       category_id: categoryId
     },
+    // 返回数据类型
     dataType: "json",
+    // 接口请求成功回调
     success: function ( data ) {
       renderList(data);
     },
+    // 接口请求失败回调
     error: function ( XMLHttpRequest ) {
       //通讯失败并返回状态码
       alert("通讯失败：" + XMLHttpRequest.status)
