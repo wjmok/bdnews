@@ -1,0 +1,127 @@
+{%extends '../layout.html'%}
+
+{%block head%}
+<title>{%block title%}新闻管理后台{%endblock%}</title>
+<!-- 这里放这个页面自己的样式文件和脚本 , 脚本也可以放在 scripts block里-->
+{%endblock%}
+
+{%block content%}
+<div class="container">
+  <h2>News</h2>
+  <button class="btn btn-primary" data-toggle="modal" data-target="#modal-creat">Create News</button>
+  <!-- 点击这个按钮实现往数据库中增加新内容 -->
+  <div class="row">
+    <div class="col-sm-2">
+      <small>date</small>
+    </div>
+    <div class="col-sm-10">
+      <a href="javascript: void(0)" data-toggle="modal" data-target="#modal-detail">title</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <small>date</small>
+    </div>
+    <div class="col-sm-10">
+      <a href="javascript: void(0)" data-toggle="modal" data-target="#modal-detail">title</a>
+    </div>
+  </div>
+  <!-- 这两个div是数据库中已有内容的显示，要求实现数据库中的信息全部在此处显示 -->
+  <!-- 这是增加内容的模态框 -->
+  <div class="modal fade" id="modal-creat">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+          <h1>News Editor</h1>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="/admin/news">
+            <div class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Title</label>
+
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="title" ng-model="new.title" placeholder="News Title"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Content</label>
+
+                <div class="col-sm-10">
+                <textarea class="form-control" name="content" ng-model="new.content" placeholder="News Content" cols=50
+                          rows=10></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">CoverUrl</label>
+
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="cover_url" ng-model="new.coverUrl"
+                         placeholder="News CoverUrl"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">LinkUrl</label>
+
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="link_url" ng-model="new.linkUrl"
+                         placeholder="News LinkUrl"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Category</label>
+
+                <div class="col-sm-10">
+                  <select name="category_id">
+                    <option value="1">百家</option>
+                    <option value="2">本地</option>
+                    <option value="3">图片</option>
+                    <option value="4">娱乐</option>
+                    <option value="5">社会</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <input type="submit" class="btn btn-primary">Save</input>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 这是修改现有信息的模态框 -->
+  <div class="modal fade" id="modal-detail">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+          <h1>title</h1>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="control-label">img address</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="control-label">title</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default">edit</button>
+          <button type="button" class="btn btn-primary">delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{%endblock%}

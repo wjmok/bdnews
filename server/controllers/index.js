@@ -2,6 +2,8 @@
 
 const db = require('../models/index');
 
+const homeService = require('../services/home_service');
+
 module.exports = function IndexController( router ) {
   router.get('/', homePage);
 

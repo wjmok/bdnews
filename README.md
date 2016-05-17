@@ -13,6 +13,7 @@
 
 * http://localhost:3000/news.html 打开静态页面
 * http://localhost:3000/ 打开动态路由页面
+* http://localhost:3000/admin/news 新闻后台管理页面
 
 ## 开发注意事项
 
