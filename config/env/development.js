@@ -14,7 +14,7 @@ module.exports = {
     port: 3306,
     user: 'root',
     password: '',
-    database: 'bdnews',
+    database: 'phplesson',
     charset: 'UTF8MB4',
 
     debug: [/*'OkPacket', */'ComQueryPacket'],
