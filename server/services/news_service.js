@@ -14,6 +14,30 @@ exports.getNews = function* ( categoryId ) {
   });
 };
 
+exports.getAllNews = function* () {
+  return yield db.News.findAll({
+    raw: true
+  });
+};
+
+exports.deleteNew = function* ( id ) {
+  yield db.News.destroy({ where: { id: id } });
+};
+
+// 更新接口
+exports.updateNew = function *( id, news ) {
+  yield db.News.update(
+    {
+      title: news.title,
+      content: news.content,
+      cover_url: news.cover_url
+    },
+    {
+      where: {
+        id: id
+      }
+    });
+};
 
 exports.getRecommendNews = function* () {
   return yield db.News.findAll({
@@ -23,3 +47,5 @@ exports.getRecommendNews = function* () {
     raw: true //
   });
 };
+
+

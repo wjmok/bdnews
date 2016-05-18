@@ -4,9 +4,9 @@
 
 ## 框架以及第三发库
 
-* sequelize (mysql orm)
+* sequelize (mysql orm)  [http://docs.sequelizejs.com/en/latest/api/model/#destroyoptions-promiseinteger]
 * koa (web framework)
-* swig (web template engine)
+* swig (web template engine) [http://paularmstrong.github.io/swig/docs/]
 
 
 ## 调试

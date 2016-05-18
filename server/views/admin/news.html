@@ -1,31 +1,33 @@
 {%extends '../layout.html'%}
 
+{%block title%}新闻管理后台{%endblock%}
+
 {%block head%}
-<title>{%block title%}新闻管理后台{%endblock%}</title>
+<script src="/js/news_bg.js"></script>
 <!-- 这里放这个页面自己的样式文件和脚本 , 脚本也可以放在 scripts block里-->
 {%endblock%}
 
 {%block content%}
+
+<content id="c1">
+  {% for newsItem in news %}
+  <div class="index-list" data-id="{{ newsItem.id }}">
+    <div class="index-list-image">
+      <img
+        src="{{ newsItem.cover_url }}">
+    </div>
+    <div class="index-list-main-text">
+      {{ newsItem.title }}
+      <span style="margin-left: 50px;">
+        <button class="deleteBtn" data-id="{{ newsItem.id }}">删除</button>
+      </span>
+    </div>
+  </div>
+  {% endfor %}
+</content>
+
 <div class="container">
-  <h2>News</h2>
   <button class="btn btn-primary" data-toggle="modal" data-target="#modal-creat">Create News</button>
-  <!-- 点击这个按钮实现往数据库中增加新内容 -->
-  <div class="row">
-    <div class="col-sm-2">
-      <small>date</small>
-    </div>
-    <div class="col-sm-10">
-      <a href="javascript: void(0)" data-toggle="modal" data-target="#modal-detail">title</a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-2">
-      <small>date</small>
-    </div>
-    <div class="col-sm-10">
-      <a href="javascript: void(0)" data-toggle="modal" data-target="#modal-detail">title</a>
-    </div>
-  </div>
   <!-- 这两个div是数据库中已有内容的显示，要求实现数据库中的信息全部在此处显示 -->
   <!-- 这是增加内容的模态框 -->
   <div class="modal fade" id="modal-creat">
