@@ -17,6 +17,7 @@
         <div class="col-sm-4">
             <a href="javascript: void(0)" data-toggle="modal" data-target="#modal-detail" data-id="{{ newsItem.id }}">{{ newsItem.title }}</a>
         </div>
+        <button class="deleteBtn btn btn-default" data-id="{{ newsItem.id }}">删除</button>
     </div>
     <div class="modal fade" id="modal-detail" data-id="{{ newsItem.id }}">
         <div class="modal-dialog">
@@ -59,7 +60,7 @@
                 <div class="modal-footer">
                     <button type="button" class="updateBtn btn btn-default" data-id="{{ newsItem.id }}">更新</button>
                     <span style="margin-left: 50px;">
-          <button class="deleteBtn btn btn-default" data-id="{{ newsItem.id }}">删除</button>
+          
           </span>
                 </div>
             </div>
