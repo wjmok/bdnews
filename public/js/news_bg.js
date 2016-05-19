@@ -14,7 +14,7 @@ function bindDeleteBtnEvent() {
 function bindUpdateBtnEvent() {
   $('.updateBtn').on('click', function () {
     var newsId = $(this).attr('data-id');
-    deleteNewsById(newsId);
+    updateNewsById(newsId);
   });
 }
 
