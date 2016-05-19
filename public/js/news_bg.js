@@ -11,6 +11,13 @@ function bindDeleteBtnEvent() {
   });
 }
 
+function bindUpdateBtnEvent() {
+  $('.updateBtn').on('click', function () {
+    var newsId = $(this).attr('data-id');
+    deleteNewsById(newsId);
+  });
+}
+
 function deleteNewsById( nid ) {
   $.ajax({
     type: "DELETE",
@@ -35,8 +42,11 @@ function updateNewsById( id, news ) {
     type: "PUT",
     url: "/news/" + id,
     data: {
-      title: 'new  title',
-      content: 'new content'
+       
+                "title": $("#mdfTitle").val(),
+                "cover_url": $("#mdfImg").val(),
+                "content": $("#mdfCon").text(),
+                
       // 其他信息...
     },
     dataType: "json",
