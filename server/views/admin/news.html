@@ -11,10 +11,10 @@
 {%endblock%}
 
 {%block content%}
-
-<content id="c1">
-  {% for newsItem in news %}
-  <div class="index-list" data-id="{{ newsItem.id }}">
+<div class="container">
+<!-- <content id="c1">
+ -->  {% for newsItem in news %}
+ <!--  <div class="index-list" data-id="{{ newsItem.id }}">
     <div class="index-list-image">
       <img
         src="{{ newsItem.cover_url }}">
@@ -26,11 +26,24 @@
       </span>
     </div>
   </div>
-  {% endfor %}
-</content>
-
-<div class="container">
+ -->
   <button class="btn btn-primary" data-toggle="modal" data-target="#modal-creat">Create News</button>
+
+
+
+  <div class="row" data-id="{{ newsItem.id }}">
+            <div class="col-sm-2">
+                <small>{{ newsItem.cover_url }}</small>
+            </div>
+            <div class="col-sm-10">
+                <a href="javascript: void(0)" data-toggle="modal" data-target="#modal-detail">{{ newsItem.title }}</a>
+            </div>
+        </div>
+  {% endfor %}
+<!-- </content> -->
+
+
+  
   <!-- 这两个div是数据库中已有内容的显示，要求实现数据库中的信息全部在此处显示 -->
   <!-- 这是增加内容的模态框 -->
   <div class="modal fade" id="modal-creat">
@@ -122,7 +135,9 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default">edit</button>
-          <button type="button" class="btn btn-primary">delete</button>
+          <span style="margin-left: 50px;">
+          <button class="deleteBtn" data-id="{{ newsItem.id }}">删除</button>
+          </span>
         </div>
       </div>
     </div>
