@@ -11,12 +11,7 @@ function bindDeleteBtnEvent() {
   });
 }
 
-function bindUpdateBtnEvent() {
-  $('.updateBtn').on('click', function () {
-    var newsId = $(this).attr('data-id');
-    updateNewsById(newsId);
-  });
-}
+
 
 function deleteNewsById( id ) {
   $.ajax({
@@ -35,7 +30,16 @@ function deleteNewsById( id ) {
 }
 
 // todo: 更新 新闻
-function updateNewsById( id, news ) {
+$(document).ready(function () {
+  bindUpdateBtnEvent();
+});
+ function bindUpdateBtnEvent() {
+  $('.updateBtn').on('click', function () {
+    var newsId = $(this).attr('data-id');
+    updateNewsById(newsId);
+  });
+}
+function updateNewsById( id ) {
   $.ajax({
     type: "PUT",
     url: "/news/" + id,
