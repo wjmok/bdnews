@@ -3,21 +3,15 @@
 {%block title%}新闻管理后台{%endblock%}
 
 {%block head%}
-<script type="text/javascript" src="/js/jquery-2.2.3.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script src="/js/news_bg.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 <!-- 这里放这个页面自己的样式文件和脚本 , 脚本也可以放在 scripts block里-->
 {%endblock%}
 
 {%block content%}
-<div class="container">
- <!-- <content id="c1"> -->
- <h2>News</h2>
- <hr>
-<button class="btn btn-primary" data-toggle="modal" data-target="#modal-creat">Create News</button>
+
+<content id="c1">
   {% for newsItem in news %}
- <!--  <div class="index-list" data-id="{{ newsItem.id }}">
+  <div class="index-list" data-id="{{ newsItem.id }}">
     <div class="index-list-image">
       <img
         src="{{ newsItem.cover_url }}">
@@ -29,53 +23,11 @@
       </span>
     </div>
   </div>
- -->
-  
-
- <div class="row" data-id="{{ newsItem.id }}">
-    <div class="col-sm-8">
-        <small>{{ newsItem.cover_url }}</small>
-    </div>
-    <div class="col-sm-4">
-        <a href="javascript: void(0)" data-toggle="modal" data-target="#modal-detail">{{ newsItem.title }}</a>
-    </div>
-</div>
-
-
-  <div class="modal fade" id="modal-detail">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-            aria-hidden="true">&times;</span></button>
-          <h1>title</h1>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="recipient-name" class="control-label">img address</label>
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="control-label">title</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default">edit</button>
-          <span style="margin-left: 50px;">
-          <button class="deleteBtn btn btn-default" data-id="{{ newsItem.id }}">删除</button>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
   {% endfor %}
-<!-- </content> -->
+</content>
 
-
-  
+<div class="container">
+  <button class="btn btn-primary" data-toggle="modal" data-target="#modal-creat">Create News</button>
   <!-- 这两个div是数据库中已有内容的显示，要求实现数据库中的信息全部在此处显示 -->
   <!-- 这是增加内容的模态框 -->
   <div class="modal fade" id="modal-creat">
@@ -145,7 +97,7 @@
     </div>
   </div>
   <!-- 这是修改现有信息的模态框 -->
-<!--   <div class="modal fade" id="modal-detail">
+  <div class="modal fade" id="modal-detail">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -167,13 +119,11 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default">edit</button>
-          <span style="margin-left: 50px;">
-          <button class="deleteBtn btn btn-default" data-id="{{ newsItem.id }}">删除</button>
-          </span>
+          <button type="button" class="btn btn-primary">delete</button>
         </div>
       </div>
     </div>
   </div>
- -->
+
 </div>
 {%endblock%}
