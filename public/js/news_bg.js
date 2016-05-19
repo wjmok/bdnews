@@ -18,13 +18,11 @@ function bindUpdateBtnEvent() {
   });
 }
 
-function deleteNewsById( nid ) {
+function deleteNewsById( id ) {
   $.ajax({
     type: "DELETE",
-    url: "/news/" + nid,
-    data: {
-      id='nid',
-    },
+    url: "/news/" + id,
+    data: {},
     dataType: "json",
     success: function ( data ) {
       window.location.reload();
